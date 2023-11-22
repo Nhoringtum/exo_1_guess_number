@@ -39,7 +39,7 @@ def random_Number(x: int, y: int) -> int:
     return i
 
 
-def is_number_find(x: int, y: int) -> bool:
+def compare_int(x: int, y: int) -> bool:
     while True:
         if x > y:
             print("Le nombre à trouver est plus petit\n")
@@ -64,13 +64,13 @@ while isPlayingGame:
     borneA, borneB = reverse_number(borneA, borneB)
     randomNumber: int = random_Number(borneA, borneB)
     guessNumber: int = ask_int_in_range(borneA, borneB)
-    isNumBerFind: bool = is_number_find(guessNumber, randomNumber)
+    isNumBerFind: bool = compare_int(guessNumber, randomNumber)
 
     while not isNumBerFind:
         if guess < maxGuess:
             print(f"Vous n'avez plus que {maxGuess - guess} essais :\n")
             guessNumber: int = ask_int_in_range(borneA, borneB)
-            isNumBerFind: bool = is_number_find(guessNumber, randomNumber)
+            isNumBerFind: bool = compare_int(guessNumber, randomNumber)
             guess += 1
         else:
             print(f"Perdu ! Le nombre a trouver était : {randomNumber}")
